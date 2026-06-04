@@ -26,8 +26,13 @@
     "productivity"
   ],
   "files": [
-    "dist",
-    "src-tauri"
+    "dist/cli.js",
+    "src-tauri",
+    "!src-tauri/.pake",
+    "!src-tauri/.bghitapp",
+    "!src-tauri/png",
+    "!src-tauri/target",
+    "!src-tauri/gen"
   ],
   "scripts": {
     "start": "pnpm run dev",

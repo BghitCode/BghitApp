@@ -1,7 +1,4 @@
 
-!dist/.gitkeep
-!dist/about_pake.html
-!dist/cli.js
 .DS_Store
 .idea
 .next
@@ -42,7 +39,9 @@ pnpm-debug.log*
 src-tauri/.cargo/
 src-tauri/.cargo/config.toml
 src-tauri/.pake/
+src-tauri/.bghitapp/
 src-tauri/gen
+src-tauri/png/
 yarn-debug.log*
 yarn-error.log*
 
@@ -51,7 +50,9 @@ code-review-graph.mmd
 code-review-graph.json
 
 # Local test artifacts
+splash-test*.png
 test-local.html
+test-write-permission.tmp
 src-tauri/icons/testapp.icns
 src-tauri/icons/localapp.icns
 src-tauri/icons/urltest.icns

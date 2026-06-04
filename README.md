@@ -1,16 +1,15 @@
-<h4 align="right"><strong>English</strong> | <a href="README_CN.md">简体中文</a></h4>
 <p align="center">
-    <img src=https://gw.alipayobjects.com/zos/k/fa/logo-modified.png width=138/>
+    <img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=138/>
 </p>
 <h1 align="center">BghitApp</h1>
 <p align="center"><strong>Turn any webpage into a desktop app with one command — by BghitCode. Supports macOS, Windows, and Linux</strong></p>
 <div align="center">
     <a href="https://github.com/BghitCode/bghitapp/releases" target="_blank">
-    <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/BghitCode/Pake/total.svg?style=flat-square"></a>
+    <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/BghitCode/bghitapp/total.svg?style=flat-square"></a>
     <a href="https://github.com/BghitCode/bghitapp/commits" target="_blank">
-    <img alt="GitHub commit" src="https://img.shields.io/github/commit-activity/m/BghitCode/Pake?style=flat-square"></a>
+    <img alt="GitHub commit" src="https://img.shields.io/github/commit-activity/m/BghitCode/bghitapp?style=flat-square"></a>
     <a href="https://github.com/BghitCode/bghitapp/issues?q=is%3Aissue+is%3Aclosed" target="_blank">
-    <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/BghitCode/Pake.svg?style=flat-square"></a>
+    <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/BghitCode/bghitapp.svg?style=flat-square"></a>
 </div>
 
 ## Features
@@ -43,8 +42,8 @@
         </td>
     </tr>
     <tr>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/WeRead.jpg width=600/></td>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/Twitter.jpg width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
     </tr>
     <tr>
         <td>Grok
@@ -59,8 +58,8 @@
         </td>
     </tr>
     <tr>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/Grok.png width=600/></td>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/DeepSeek.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
     </tr>
     <tr>
         <td>ChatGPT
@@ -75,8 +74,8 @@
         </td>
     </tr>
     <tr>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/ChatGPT.png width=600/></td>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/Gemini.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
     </tr>
     <tr>
       <td>YouTube Music
@@ -91,8 +90,8 @@
       </td>
     </tr>
     <tr>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/YouTubeMusic.png width=600 /></td>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/YouTube.jpg width=600 /></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600 /></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600 /></td>
     </tr>
     <tr>
         <td>LiZhi
@@ -107,8 +106,8 @@
         </td>
     </tr>
     <tr>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/LiZhi.jpg width=600/></td>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/ProgramMusic.jpg width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
     </tr>
     <tr>
         <td>Excalidraw
@@ -123,8 +122,8 @@
         </td>
     </tr>
     <tr>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/Excalidraw.png width=600/></td>
-        <td><img src=https://raw.githubusercontent.com/tw93/static/main/pake/XiaoHongShu.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
+        <td><img src=https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png width=600/></td>
     </tr>
 </table>
 
@@ -156,7 +155,7 @@ In addition, double-click the title bar to switch to full-screen mode. For Mac u
 
 ## Command-Line Packaging
 
-![BghitApp](https://raw.githubusercontent.com/tw93/static/main/bghitapp/bghitapp1.gif)
+![BghitApp](https://raw.githubusercontent.com/BghitCode/bghitapp/main/src-tauri/icons/icon.png)
 
 ```bash
 # Install BghitApp CLI

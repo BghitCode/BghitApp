@@ -50,5 +50,6 @@ tsconfig.json
 src-tauri/target/
 src-tauri/.cargo/config.toml
 src-tauri/.pake/
+src-tauri/.bghitapp/
 src-tauri/gen/
 output/
