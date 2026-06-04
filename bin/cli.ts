@@ -4,7 +4,7 @@ import updateNotifier from 'update-notifier';
 import packageJson from '../package.json';
 import BuilderProvider from './builders/BuilderProvider';
 import handleInputOptions from './options/index';
-import { getCliProgram } from './helpers/cli-program';
+import { getCliProgram, logo } from './helpers/cli-program';
 import { isBghitappError } from './utils/error';
 import { BghitappCliOptions } from './types';
 
@@ -18,6 +18,7 @@ async function checkUpdateTips() {
 
 program.action(async (url: string, options: BghitappCliOptions) => {
   try {
+    console.log(logo);
     await checkUpdateTips();
 
     if (!url) {
