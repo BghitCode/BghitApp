@@ -11,8 +11,8 @@ ${green('|  _ \\ / _` | \'_ \\| | __| / _ \\ | \'_ \\| \'_ \\ ')}
 ${green('| |_) | (_| | | | | | |_ / ___ \\| |_) | |_) |')}
 ${green('|____/ \\__, |_| |_|_|\\__/_/   \\_\\ .__/| .__/ ')}
 ${green('       |___/                    |_|   |_|    ')}
-${yellow('https://github.com/BghitCode/bghitapp')}
-${gray('Turn any webpage into a desktop app — quickly, with Rust.')}
+${yellow('https://bghitcode.com')}
+${gray('Turn any webpage into a desktop app — by BghitCode')}
 `;
 
 export function getCliProgram() {

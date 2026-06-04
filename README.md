@@ -163,14 +163,6 @@ pnpm run build
 
 For style customization, feature enhancement, container communication and other advanced features, see [Advanced Usage Documentation](docs/advanced-usage.md).
 
-## Developers
-
-BghitApp's development can not be without these Hackers. They contributed a lot of capabilities for BghitApp. Also, welcome to follow them! ❤️
-
-<a href="https://github.com/BghitCode/bghitapp/graphs/contributors">
-  <img src="./CONTRIBUTORS.svg?v=2" alt="Contributors" width="1000" />
-</a>
-
 ## Support
 
 - If BghitApp helped you, [share it](https://twitter.com/intent/tweet?url=https://github.com/BghitCode/bghitapp&text=BghitApp%20-%20Turn%20any%20webpage%20into%20a%20desktop%20app%20with%20one%20command.%20Nearly%2020x%20smaller%20than%20Electron%20packages,%20supports%20macOS%20Windows%20Linux) with friends or give it a star.
