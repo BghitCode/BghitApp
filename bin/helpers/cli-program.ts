@@ -4,13 +4,14 @@ import packageJson from '../../package.json';
 import { DEFAULT_BGHITAPP_OPTIONS as DEFAULT } from '../defaults';
 import { validateNumberInput, validateUrlInput } from '../utils/validate';
 
-const { green, yellow, cyan } = chalk;
-export const logo = `
-${cyan('╔══════════════════════════════════════════════════════════╗')}
-${cyan('║')}              ${green('BghitApp')} v${packageJson.version}${' '.repeat(29 - packageJson.version.length)}${cyan('║')}
-${cyan('║')}     ${yellow('Turn any webpage into a desktop app with Rust')}      ${cyan('║')}
-${cyan('║')}          ${yellow('https://github.com/BghitCode/bghitapp')}            ${cyan('║')}
-${cyan('╚══════════════════════════════════════════════════════════╝')}
+const { green, yellow } = chalk;
+export const logo = `${green(' ____        _     _ _      _                ')}
+${green('| __ )  __ _| |__ (_) |_   / \\   _ __  _ __  ')}
+${green('|  _ \\ / _` | \'_ \\| | __| / _ \\ | \'_ \\| \'_ \\ ')}
+${green('| |_) | (_| | | | | | |_ / ___ \\| |_) | |_) |')}
+${green('|____/ \\__, |_| |_|_|\\__/_/   \\_\\ .__/| .__/ ')}
+${green('       |___/                    |_|   |_|    ')}
+${yellow('https://github.com/BghitCode/bghitapp')}
 `;
 
 export function getCliProgram() {
