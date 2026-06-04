@@ -4,12 +4,13 @@ import packageJson from '../../package.json';
 import { DEFAULT_BGHITAPP_OPTIONS as DEFAULT } from '../defaults';
 import { validateNumberInput, validateUrlInput } from '../utils/validate';
 
-const { green, yellow } = chalk;
-export const logo = `${green(' ____       _')}
-${green('|  _ \\ __ _| | _____')}
-${green('| |_) / _` | |/ / _ \\')}
-${green('|  __/ (_| |   <  __/')}  ${yellow('https://github.com/BghitCode/bghitapp')}
-${green('|_|   \\__,_|_|\\_\\___|  can turn any webpage into a desktop app with Rust.')}
+const { green, yellow, cyan } = chalk;
+export const logo = `
+${cyan('╔══════════════════════════════════════════════════════════╗')}
+${cyan('║')}              ${green('BghitApp')} v${packageJson.version}${' '.repeat(29 - packageJson.version.length)}${cyan('║')}
+${cyan('║')}     ${yellow('Turn any webpage into a desktop app with Rust')}      ${cyan('║')}
+${cyan('║')}          ${yellow('https://github.com/BghitCode/bghitapp')}            ${cyan('║')}
+${cyan('╚══════════════════════════════════════════════════════════╝')}
 `;
 
 export function getCliProgram() {
