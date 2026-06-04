@@ -1,6 +1,6 @@
 {
   "name": "@bghitcode/bghitapp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🤱🏻 Turn any webpage into a desktop app with one command — by BghitCode.",
   "engines": {
     "node": ">=18.0.0"
