@@ -18,7 +18,6 @@ async function checkUpdateTips() {
 
 program.action(async (url: string, options: BghitappCliOptions) => {
   try {
-    console.log(logo);
     await checkUpdateTips();
 
     if (!url) {
@@ -28,6 +27,7 @@ program.action(async (url: string, options: BghitappCliOptions) => {
       return;
     }
 
+    console.log(logo);
     log.setDefaultLevel('info');
     log.setLevel('info');
     if (options.debug) {
