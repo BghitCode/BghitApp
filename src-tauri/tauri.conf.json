@@ -4,11 +4,6 @@
   "version": "1.0.0",
   "app": {
     "withGlobalTauri": true,
-    "trayIcon": {
-      "iconPath": "images/icon.png",
-      "iconAsTemplate": false,
-      "id": "bghitapp-tray"
-    },
     "security": {
       "headers": {},
       "csp": null

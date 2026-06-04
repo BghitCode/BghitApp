@@ -33,9 +33,9 @@ let tauriConfig = {
   bundle: platformConfig.bundle,
   app: {
     ...CommonConf.app,
-    trayIcon: {
-      ...(platformConfig?.app?.trayIcon ?? {}),
-    },
+    ...(platformConfig?.app?.trayIcon
+      ? { trayIcon: { ...platformConfig.app.trayIcon } }
+      : {}),
   },
   build: CommonConf.build,
   bghitapp: bghitappConf,
