@@ -4,7 +4,7 @@ import packageJson from '../../package.json';
 import { DEFAULT_BGHITAPP_OPTIONS as DEFAULT } from '../defaults';
 import { validateNumberInput, validateUrlInput } from '../utils/validate';
 
-const { green, yellow } = chalk;
+const { green, yellow, gray } = chalk;
 export const logo = `${green(' ____        _     _ _      _                ')}
 ${green('| __ )  __ _| |__ (_) |_   / \\   _ __  _ __  ')}
 ${green('|  _ \\ / _` | \'_ \\| | __| / _ \\ | \'_ \\| \'_ \\ ')}
@@ -12,6 +12,7 @@ ${green('| |_) | (_| | | | | | |_ / ___ \\| |_) | |_) |')}
 ${green('|____/ \\__, |_| |_|_|\\__/_/   \\_\\ .__/| .__/ ')}
 ${green('       |___/                    |_|   |_|    ')}
 ${yellow('https://github.com/BghitCode/bghitapp')}
+${gray('Turn any webpage into a desktop app — quickly, with Rust.')}
 `;
 
 export function getCliProgram() {
