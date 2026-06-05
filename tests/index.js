@@ -1012,7 +1012,11 @@ export class BghitappTestRunner {
             if (output.includes("Compiling")) compilationStarted = true;
             if (output.includes("Finished"))
               console.log("   [PASS] Multi-arch compilation finished!");
-            if (output.includes("error") || output.includes("ERROR")) {
+            if (
+              output.includes("error[E") ||
+              output.includes("error:") ||
+              output.includes("ERROR:")
+            ) {
               console.log(`   [Error] ${output.trim().slice(0, 200)}`);
             }
           });
