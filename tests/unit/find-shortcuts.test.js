@@ -181,7 +181,7 @@ function loadFindScript({
       FILTER_REJECT: 2,
     },
     window: {
-      pakeConfig: { enable_find: enabled },
+      bghitappConfig: { enable_find: enabled },
     },
     document: createDocument(nodes),
   };
@@ -201,17 +201,17 @@ describe("Find injection", () => {
     });
 
     expect(context.document.listeners.keydown).toBeUndefined();
-    expect(context.window.pakeFind.getState().enabled).toBe(false);
+    expect(context.window.bghitappFind.getState().enabled).toBe(false);
     expect(
-      context.window.pakeFind.getFindShortcutAction(
+      context.window.bghitappFind.getFindShortcutAction(
         createKeyboardEvent("f", { ctrlKey: true }),
       ),
     ).toBe("");
-    expect(context.window.pakeFind.open().isOpen).toBe(false);
-    expect(context.window.pakeFind.search("alpha").matchCount).toBe(0);
-    expect(context.window.pakeFind.next().activeIndex).toBe(-1);
-    expect(context.window.pakeFind.previous().activeIndex).toBe(-1);
-    expect(context.window.pakeFind.close().matchCount).toBe(0);
+    expect(context.window.bghitappFind.open().isOpen).toBe(false);
+    expect(context.window.bghitappFind.search("alpha").matchCount).toBe(0);
+    expect(context.window.bghitappFind.next().activeIndex).toBe(-1);
+    expect(context.window.bghitappFind.previous().activeIndex).toBe(-1);
+    expect(context.window.bghitappFind.close().matchCount).toBe(0);
     expect(context.document.head.children).toHaveLength(0);
     expect(context.document.body.children).toHaveLength(0);
   });
@@ -219,9 +219,9 @@ describe("Find injection", () => {
   it("handles Cmd/Ctrl+F and Cmd/Ctrl+G shortcuts when enabled", () => {
     const context = loadFindScript({ enabled: true });
     const calls = [];
-    context.window.pakeFind.open = () => calls.push("open");
-    context.window.pakeFind.next = () => calls.push("next");
-    context.window.pakeFind.previous = () => calls.push("previous");
+    context.window.bghitappFind.open = () => calls.push("open");
+    context.window.bghitappFind.next = () => calls.push("next");
+    context.window.bghitappFind.previous = () => calls.push("previous");
 
     const [listener] = context.document.listeners.keydown;
 
@@ -246,7 +246,7 @@ describe("Find injection", () => {
       userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
     });
     const calls = [];
-    context.window.pakeFind.open = () => calls.push("open");
+    context.window.bghitappFind.open = () => calls.push("open");
 
     const [listener] = context.document.listeners.keydown;
     listener.handler(createKeyboardEvent("f", { ctrlKey: true }));
@@ -266,7 +266,7 @@ describe("Find injection", () => {
     ];
     const context = loadFindScript({ enabled: true, nodes });
 
-    const result = context.window.pakeFind.search("alpha");
+    const result = context.window.bghitappFind.search("alpha");
 
     expect(result.matchCount).toBe(2);
     expect(result.activeIndex).toBe(0);
@@ -279,10 +279,10 @@ describe("Find injection", () => {
       nodes: [createTextNode("Alpha alpha", paragraph)],
     });
 
-    context.window.pakeFind.search("alpha");
-    expect(context.window.pakeFind.getState().matchCount).toBe(2);
+    context.window.bghitappFind.search("alpha");
+    expect(context.window.bghitappFind.getState().matchCount).toBe(2);
 
-    context.window.pakeFind.close();
-    expect(context.window.pakeFind.getState().matchCount).toBe(0);
+    context.window.bghitappFind.close();
+    expect(context.window.bghitappFind.getState().matchCount).toBe(0);
   });
 });

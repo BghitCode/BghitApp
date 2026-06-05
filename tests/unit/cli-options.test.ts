@@ -22,28 +22,25 @@ describe('CLI options', () => {
     expect(option?.defaultValue).toBe('');
   });
 
-  it('registers hidden --identifier option', () => {
+  it('registers --identifier option', () => {
     const option = program.options.find((item) => item.long === '--identifier');
 
     expect(option).toBeDefined();
-    expect(option?.hidden).toBe(true);
   });
 
-  it('registers hidden --install option', () => {
+  it('registers --install option', () => {
     const option = program.options.find((item) => item.long === '--install');
 
     expect(option).toBeDefined();
     expect(option?.defaultValue).toBe(false);
-    expect(option?.hidden).toBe(true);
   });
 
-  it('registers hidden --enable-find option', () => {
+  it('registers --enable-find option', () => {
     const option = program.options.find(
       (item) => item.long === '--enable-find',
     );
 
     expect(option).toBeDefined();
     expect(option?.defaultValue).toBe(false);
-    expect(option?.hidden).toBe(true);
   });
 });
