@@ -81,6 +81,8 @@ jobs:
   build-popular-apps:
     name: ${{ matrix.config.title }}
     needs: [release-apps, build-cli, create-release]
+    permissions:
+      contents: write
     if: |
       needs.release-apps.result == 'success' &&
       needs.build-cli.result == 'success' &&
