@@ -204,7 +204,7 @@ class BghitappTestRunner {
           encoding: "utf8",
           timeout: TIMEOUTS.QUICK,
         });
-        return output.includes("Usage: cli [url] [options]");
+        return output.includes("Usage: bghitapp [url] [options]");
       },
       TIMEOUTS.QUICK,
     );

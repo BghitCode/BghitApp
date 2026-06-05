@@ -73,21 +73,21 @@ runs:
       if: env.SETUP_RUST == 'true' && runner.os == 'Linux'
       uses: dtolnay/rust-toolchain@stable
       with:
-        toolchain: stable
+        toolchain: "1.88.0"
         target: x86_64-unknown-linux-gnu
 
     - name: Setup Rust for Windows
       if: env.SETUP_RUST == 'true' && runner.os == 'Windows'
       uses: dtolnay/rust-toolchain@stable
       with:
-        toolchain: stable-x86_64-msvc
+        toolchain: "1.88.0-x86_64-msvc"
         target: x86_64-pc-windows-msvc
 
     - name: Setup Rust for macOS
       if: env.SETUP_RUST == 'true' && runner.os == 'macOS'
       uses: dtolnay/rust-toolchain@stable
       with:
-        toolchain: stable
+        toolchain: "1.88.0"
 
     - name: Add macOS universal targets
       if: env.SETUP_RUST == 'true' && runner.os == 'macOS'

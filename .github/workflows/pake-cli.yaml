@@ -67,7 +67,7 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: "1.88.0"
 
       - name: Setup Node.js Environment
         uses: ./.github/actions/setup-env

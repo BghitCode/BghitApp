@@ -1,11 +1,8 @@
 # syntax=docker/dockerfile:1.4
-# Cargo build stage - Updated to latest Rust for edition2024 support
-FROM rust:latest AS cargo-builder
+# Cargo build stage - Pin Rust 1.88.0 (1.93.0 breaks tauri-build proc macros)
+FROM rust:1.88.0-bookworm AS cargo-builder
 
-# Update Rust to ensure we have the latest version with edition2024 support
-RUN rustup update stable && rustup default stable
-
-# Verify Rust version supports edition2024
+# Verify Rust version
 RUN rustc --version && cargo --version
 
 # Install Rust dependencies
@@ -38,10 +35,7 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
 RUN ls -la /cargo-cache/registry && ls -la /cargo-cache/git && rm -rfd /cargo-cache/registry/src
 
 # Main build stage
-FROM rust:latest AS builder
-
-# Update Rust to ensure we have the latest version with edition2024 support
-RUN rustup update stable && rustup default stable
+FROM rust:1.88.0-bookworm AS builder
 
 # Install Rust dependencies
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \

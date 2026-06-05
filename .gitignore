@@ -30,6 +30,7 @@ AGENTS.override.md
 AGENT.md
 dist
 dist-ssr
+gstack
 journal/
 lerna-debug.log*
 logs
