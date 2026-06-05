@@ -295,18 +295,5 @@ export function getCliProgram() {
       new Option('--offline', 'Enable offline fallback page')
         .default(DEFAULT.offline),
     )
-    .version(packageJson.version, '-v, --version')
-    .configureHelp({
-      sortSubcommands: true,
-      optionTerm: (option) => {
-        if (option.flags === '-v, --version' || option.flags === '-h, --help')
-          return '';
-        return option.flags;
-      },
-      optionDescription: (option) => {
-        if (option.flags === '-v, --version' || option.flags === '-h, --help')
-          return '';
-        return option.description;
-      },
-    });
+    .version(packageJson.version, '-v, --version');
 }
