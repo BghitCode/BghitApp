@@ -778,6 +778,8 @@ export class BghitappTestRunner {
 
           let buildStarted = false;
           let compilationStarted = false;
+          let errorOutput = "";
+          let allStderr = "";
 
           // Track progress without too much noise
           child.stdout.on("data", (data) => {
@@ -801,9 +803,9 @@ export class BghitappTestRunner {
             }
           });
 
-          let errorOutput = "";
           child.stderr.on("data", (data) => {
             const output = data.toString();
+            allStderr += output;
             if (output.includes("Building app")) buildStarted = true;
             if (output.includes("Compiling")) compilationStarted = true;
             if (output.includes("Finished"))
@@ -895,16 +897,27 @@ export class BghitappTestRunner {
                   errorOutput.split("\n").forEach((line) => {
                     if (line.trim()) console.log(`     ${line.trim()}`);
                   });
+                } else if (allStderr.trim()) {
+                  const lines = allStderr.split("\n").filter((l) => l.trim());
+                  console.log(
+                    `   [Stderr] Last ${Math.min(lines.length, 30)} lines of stderr:`,
+                  );
+                  lines.slice(-30).forEach((line) => {
+                    console.log(`   [Stderr] ${line}`);
+                  });
                 }
                 this.debugBuildDirectories();
               } else {
                 console.log(
                   "   [Status] Build failed before starting compilation",
                 );
-                if (errorOutput.trim()) {
-                  console.log("   [Check] Error details:");
-                  errorOutput.split("\n").forEach((line) => {
-                    if (line.trim()) console.log(`     ${line.trim()}`);
+                if (allStderr.trim()) {
+                  const lines = allStderr.split("\n").filter((l) => l.trim());
+                  console.log(
+                    `   [Stderr] Last ${Math.min(lines.length, 50)} lines of stderr:`,
+                  );
+                  lines.slice(-50).forEach((line) => {
+                    console.log(`   [Stderr] ${line}`);
                   });
                 }
               }
@@ -960,10 +973,13 @@ export class BghitappTestRunner {
 
           let buildStarted = false;
           let compilationStarted = false;
+          let stderrOutput = "";
+          let stdoutOutput = "";
 
           // Track progress
           child.stdout.on("data", (data) => {
             const output = data.toString();
+            stdoutOutput += output;
             if (output.includes("Installing package")) {
               console.log("   [Package] Installing dependencies...");
             }
@@ -991,10 +1007,14 @@ export class BghitappTestRunner {
 
           child.stderr.on("data", (data) => {
             const output = data.toString();
+            stderrOutput += output;
             if (output.includes("Building app")) buildStarted = true;
             if (output.includes("Compiling")) compilationStarted = true;
             if (output.includes("Finished"))
               console.log("   [PASS] Multi-arch compilation finished!");
+            if (output.includes("error") || output.includes("ERROR")) {
+              console.log(`   [Error] ${output.trim().slice(0, 200)}`);
+            }
           });
 
           // Multi-arch builds take longer - 20 minutes timeout
@@ -1091,6 +1111,15 @@ export class BghitappTestRunner {
               console.log(
                 "   [Warn]  Multi-arch build process completed but no output files found",
               );
+              if (stderrOutput) {
+                const lines = stderrOutput.split("\n").filter((l) => l.trim());
+                console.log(
+                  `   [Stderr] Last ${Math.min(lines.length, 30)} lines of stderr:`,
+                );
+                lines.slice(-30).forEach((line) => {
+                  console.log(`   [Stderr] ${line}`);
+                });
+              }
               this.debugBuildDirectories(
                 {
                   app: appFile,
@@ -1105,6 +1134,15 @@ export class BghitappTestRunner {
               resolve(false);
             } else {
               // Only reject if the build never started or failed early
+              if (stderrOutput) {
+                const lines = stderrOutput.split("\n").filter((l) => l.trim());
+                console.log(
+                  `   [Stderr] Last ${Math.min(lines.length, 50)} lines of stderr:`,
+                );
+                lines.slice(-50).forEach((line) => {
+                  console.log(`   [Stderr] ${line}`);
+                });
+              }
               reject(
                 new Error(`Multi-arch build test failed with code ${code}`),
               );
