@@ -1171,6 +1171,14 @@ class BghitappTestRunner {
               config.PROJECT_ROOT,
               "src-tauri/target/universal-apple-darwin/release/bundle",
             ),
+            path.join(
+              config.PROJECT_ROOT,
+              "src-tauri/target/universal-apple-darwin/release/bundle/macos",
+            ),
+            path.join(
+              config.PROJECT_ROOT,
+              "src-tauri/target/universal-apple-darwin/release/bundle/dmg",
+            ),
           ]
         : []),
     ];
