@@ -11,6 +11,7 @@
 *.local
 *.log
 *.msi
+*.tgz
 *.njsproj
 *.ntvs*
 *.sln

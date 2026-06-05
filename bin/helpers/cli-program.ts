@@ -26,7 +26,7 @@ export function getCliProgram() {
       new Option(
         '--identifier <string>',
         'Application identifier / bundle ID',
-      ).hideHelp(),
+      ),
     )
     .option('--icon <string>', 'Application icon', DEFAULT.icon)
     .option(
@@ -71,14 +71,11 @@ export function getCliProgram() {
       new Option(
         '--proxy-url <url>',
         'Proxy URL for all network requests (http://, https://, socks5://)',
-      )
-        .default(DEFAULT.proxyUrl)
-        .hideHelp(),
+      ).default(DEFAULT.proxyUrl),
     )
     .addOption(
       new Option('--user-agent <string>', 'Custom user agent')
-        .default(DEFAULT.userAgent)
-        .hideHelp(),
+        .default(DEFAULT.userAgent),
     )
     .addOption(
       new Option(
@@ -90,44 +87,35 @@ export function getCliProgram() {
       new Option(
         '--app-version <string>',
         'App version, the same as package.json version',
-      )
-        .default(DEFAULT.appVersion)
-        .hideHelp(),
+      ).default(DEFAULT.appVersion),
     )
     .addOption(
       new Option('--always-on-top', 'Always on the top level')
-        .default(DEFAULT.alwaysOnTop)
-        .hideHelp(),
+        .default(DEFAULT.alwaysOnTop),
     )
     .addOption(
       new Option('--maximize', 'Start window maximized')
-        .default(DEFAULT.maximize)
-        .hideHelp(),
+        .default(DEFAULT.maximize),
     )
     .addOption(
       new Option('--dark-mode', 'Force Mac app to use dark mode')
-        .default(DEFAULT.darkMode)
-        .hideHelp(),
+        .default(DEFAULT.darkMode),
     )
     .addOption(
       new Option('--disabled-web-shortcuts', 'Disabled webPage shortcuts')
-        .default(DEFAULT.disabledWebShortcuts)
-        .hideHelp(),
+        .default(DEFAULT.disabledWebShortcuts),
     )
     .addOption(
       new Option('--activation-shortcut <string>', 'Shortcut key to active App')
-        .default(DEFAULT.activationShortcut)
-        .hideHelp(),
+        .default(DEFAULT.activationShortcut),
     )
     .addOption(
       new Option('--show-system-tray', 'Show system tray in app')
-        .default(DEFAULT.showSystemTray)
-        .hideHelp(),
+        .default(DEFAULT.showSystemTray),
     )
     .addOption(
       new Option('--system-tray-icon <string>', 'Custom system tray icon')
-        .default(DEFAULT.systemTrayIcon)
-        .hideHelp(),
+        .default(DEFAULT.systemTrayIcon),
     )
     .addOption(
       new Option(
@@ -140,76 +128,60 @@ export function getCliProgram() {
           if (value === 'true') return true;
           if (value === 'false') return false;
           throw new Error('--hide-on-close must be true or false');
-        })
-        .hideHelp(),
+        }),
     )
-    .addOption(new Option('--title <string>', 'Window title').hideHelp())
+    .addOption(new Option('--title <string>', 'Window title'))
     .addOption(
       new Option('--incognito', 'Launch app in incognito/private mode')
-        .default(DEFAULT.incognito)
-        .hideHelp(),
+        .default(DEFAULT.incognito),
     )
     .addOption(
       new Option('--wasm', 'Enable WebAssembly support (Flutter Web, etc.)')
-        .default(DEFAULT.wasm)
-        .hideHelp(),
+        .default(DEFAULT.wasm),
     )
     .addOption(
       new Option('--enable-drag-drop', 'Enable drag and drop functionality')
-        .default(DEFAULT.enableDragDrop)
-        .hideHelp(),
+        .default(DEFAULT.enableDragDrop),
     )
     .addOption(
       new Option('--keep-binary', 'Keep raw binary file alongside installer')
-        .default(DEFAULT.keepBinary)
-        .hideHelp(),
+        .default(DEFAULT.keepBinary),
     )
     .addOption(
       new Option('--multi-instance', 'Allow multiple app instances')
-        .default(DEFAULT.multiInstance)
-        .hideHelp(),
+        .default(DEFAULT.multiInstance),
     )
     .addOption(
       new Option(
         '--multi-window',
         'Allow opening multiple windows within one app instance',
-      )
-        .default(DEFAULT.multiWindow)
-        .hideHelp(),
+      ).default(DEFAULT.multiWindow),
     )
     .addOption(
       new Option('--start-to-tray', 'Start app minimized to tray')
-        .default(DEFAULT.startToTray)
-        .hideHelp(),
+        .default(DEFAULT.startToTray),
     )
     .addOption(
       new Option(
         '--force-internal-navigation',
         'Keep every link inside the BghitApp window instead of opening external handlers',
-      )
-        .default(DEFAULT.forceInternalNavigation)
-        .hideHelp(),
+      ).default(DEFAULT.forceInternalNavigation),
     )
     .addOption(
       new Option(
         '--internal-url-regex <string>',
         'Regex pattern to match URLs that should be considered internal',
-      )
-        .default(DEFAULT.internalUrlRegex)
-        .hideHelp(),
+      ).default(DEFAULT.internalUrlRegex),
     )
     .addOption(
       new Option(
         '--enable-find',
         'Enable in-page Find UI with Cmd/Ctrl+F/G shortcuts',
-      )
-        .default(DEFAULT.enableFind)
-        .hideHelp(),
+      ).default(DEFAULT.enableFind),
     )
     .addOption(
       new Option('--installer-language <string>', 'Installer language')
-        .default(DEFAULT.installerLanguage)
-        .hideHelp(),
+        .default(DEFAULT.installerLanguage),
     )
     .addOption(
       new Option('--zoom <number>', 'Initial page zoom level (50-200)')
@@ -220,76 +192,61 @@ export function getCliProgram() {
             throw new Error('--zoom must be a number between 50 and 200');
           }
           return zoom;
-        })
-        .hideHelp(),
+        }),
     )
     .addOption(
       new Option('--min-width <number>', 'Minimum window width')
         .default(DEFAULT.minWidth)
-        .argParser(validateNumberInput)
-        .hideHelp(),
+        .argParser(validateNumberInput),
     )
     .addOption(
       new Option('--min-height <number>', 'Minimum window height')
         .default(DEFAULT.minHeight)
-        .argParser(validateNumberInput)
-        .hideHelp(),
+        .argParser(validateNumberInput),
     )
     .addOption(
       new Option(
         '--ignore-certificate-errors',
         'Ignore certificate errors (for self-signed certificates)',
-      )
-        .default(DEFAULT.ignoreCertificateErrors)
-        .hideHelp(),
+      ).default(DEFAULT.ignoreCertificateErrors),
     )
     .addOption(
       new Option(
         '--iterative-build',
         'Turn on rapid build mode (app only, no dmg/deb/msi), good for debugging',
-      )
-        .default(DEFAULT.iterativeBuild)
-        .hideHelp(),
+      ).default(DEFAULT.iterativeBuild),
     )
     .addOption(
       new Option(
         '--new-window',
         'Allow sites to open new windows (for auth flows, tabs, branches)',
-      )
-        .default(DEFAULT.newWindow)
-        .hideHelp(),
+      ).default(DEFAULT.newWindow),
     )
     .addOption(
       new Option(
         '--install',
         'Auto-install app to /Applications (macOS) after build and remove local bundle',
-      )
-        .default(DEFAULT.install)
-        .hideHelp(),
+      ).default(DEFAULT.install),
     )
     .addOption(
       new Option('--camera', 'Request camera permission on macOS')
-        .default(DEFAULT.camera)
-        .hideHelp(),
+        .default(DEFAULT.camera),
     )
     .addOption(
       new Option('--microphone', 'Request microphone permission on macOS')
-        .default(DEFAULT.microphone)
-        .hideHelp(),
+        .default(DEFAULT.microphone),
     )
     .addOption(
       new Option(
         '--splash <path_or_url>',
         'Splash screen image (local path or URL)',
-      )
-        .default(DEFAULT.splash),
+      ).default(DEFAULT.splash),
     )
     .addOption(
       new Option(
         '--auto-splash',
         'Auto-fetch og:image from target URL for splash',
-      )
-        .default(DEFAULT.autoSplash),
+      ).default(DEFAULT.autoSplash),
     )
     .addOption(
       new Option('--offline', 'Enable offline fallback page')
