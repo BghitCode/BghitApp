@@ -144,6 +144,9 @@ bghitapp https://github.com --name GitHub
 
 # Advanced usage with custom options
 bghitapp https://example.com --name MyApp --width 1200 --height 800 --hide-title-bar
+
+# See all available options
+bghitapp --help
 ```
 
 First-time packaging requires environment setup and may be slower, subsequent builds are fast. For complete parameter documentation, see [CLI Usage Guide](docs/cli-usage.md). Don't want to use CLI? Try [GitHub Actions Online Building](docs/github-actions-usage.md).
