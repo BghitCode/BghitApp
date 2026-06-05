@@ -5,7 +5,11 @@ import { npmDirectory } from '@/utils/dir';
 
 const OG_IMAGE_MAX_SIZE = 500 * 1024; // 500KB
 
-export function generateSplashHtml(assetPath: string, iconPath: string, isIconFallback: boolean = false): string {
+export function generateSplashHtml(
+  assetPath: string,
+  iconPath: string,
+  isIconFallback: boolean = false,
+): string {
   if (isIconFallback) {
     return `<!DOCTYPE html>
 <html>
@@ -229,13 +233,17 @@ export async function processSplashAsset(
       const filename = `splash-asset${getExtension(resolved)}`;
       const dest = path.join(distDir, filename);
       try {
-        const response = await fetch(resolved, { signal: AbortSignal.timeout(15000) });
+        const response = await fetch(resolved, {
+          signal: AbortSignal.timeout(15000),
+        });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const buffer = Buffer.from(await response.arrayBuffer());
         await fsExtra.writeFile(dest, buffer);
         return { assetFilename: filename, assetPath: filename };
       } catch (err) {
-        logger.warn(`✼ Failed to download splash image: ${err instanceof Error ? err.message : String(err)}`);
+        logger.warn(
+          `✼ Failed to download splash image: ${err instanceof Error ? err.message : String(err)}`,
+        );
         logger.warn('✼ Falling back to app icon.');
         return { assetFilename: 'icon.png', assetPath: appIcon };
       }
@@ -260,11 +268,15 @@ export async function processSplashAsset(
       const filename = `splash-asset${ext}`;
       const dest = path.join(distDir, filename);
       try {
-        const response = await fetch(ogUrl, { signal: AbortSignal.timeout(15000) });
+        const response = await fetch(ogUrl, {
+          signal: AbortSignal.timeout(15000),
+        });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const buffer = Buffer.from(await response.arrayBuffer());
         if (buffer.length > OG_IMAGE_MAX_SIZE) {
-          logger.warn('✼ Downloaded og:image too large, falling back to app icon.');
+          logger.warn(
+            '✼ Downloaded og:image too large, falling back to app icon.',
+          );
           return { assetFilename: 'icon.png', assetPath: appIcon };
         }
         await fsExtra.writeFile(dest, buffer);
@@ -284,7 +296,12 @@ function getExtension(urlOrPath: string): string {
     const url = new URL(urlOrPath);
     const pathname = url.pathname;
     const ext = path.extname(pathname).split('?')[0];
-    if (ext && ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg'].includes(ext.toLowerCase())) {
+    if (
+      ext &&
+      ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg'].includes(
+        ext.toLowerCase(),
+      )
+    ) {
       return ext;
     }
   } catch {

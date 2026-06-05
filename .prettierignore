@@ -22,3 +22,4 @@ cli.js
 *.plist
 *.toml
 .github/workflows/
+gstack/

@@ -282,7 +282,9 @@ describe('BaseBuilder guards', () => {
       'utf8',
     );
 
-    expect(buildScript).toContain('cargo:rerun-if-changed=.bghitapp/bghitapp.json');
+    expect(buildScript).toContain(
+      'cargo:rerun-if-changed=.bghitapp/bghitapp.json',
+    );
     expect(buildScript).toContain(
       'cargo:rerun-if-changed=.bghitapp/tauri.conf.json',
     );

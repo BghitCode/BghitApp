@@ -450,7 +450,10 @@ export async function mergeConfig(
 
   const platform = asSupportedPlatform(process.platform);
   const tauriConfWindowOptions = buildWindowConfigOverrides(options, platform);
-  Object.assign(tauriConf.bghitapp.windows[0], { url, ...tauriConfWindowOptions });
+  Object.assign(tauriConf.bghitapp.windows[0], {
+    url,
+    ...tauriConfWindowOptions,
+  });
 
   tauriConf.productName = name;
   tauriConf.identifier = identifier;
@@ -514,7 +517,11 @@ export async function mergeConfig(
       resolvedIcon,
     );
     const isIconFallback = assetFilename === 'icon.png';
-    const splashHtml = generateSplashHtml(assetPath, resolvedIcon, isIconFallback);
+    const splashHtml = generateSplashHtml(
+      assetPath,
+      resolvedIcon,
+      isIconFallback,
+    );
     await fsExtra.writeFile(path.join(distDir, 'splash.html'), splashHtml);
     tauriConf.bghitapp.windows[0].splash = assetFilename;
     logger.info('✼ Splash screen configured.');

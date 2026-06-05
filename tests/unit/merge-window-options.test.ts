@@ -3,7 +3,9 @@ import { buildWindowConfigOverrides } from '../../bin/helpers/merge';
 import { DEFAULT_BGHITAPP_OPTIONS } from '../../bin/defaults';
 import type { BghitappAppOptions } from '../../bin/types';
 
-function makeOptions(overrides: Partial<BghitappAppOptions> = {}): BghitappAppOptions {
+function makeOptions(
+  overrides: Partial<BghitappAppOptions> = {},
+): BghitappAppOptions {
   return {
     ...DEFAULT_BGHITAPP_OPTIONS,
     identifier: 'com.bghitapp.test',

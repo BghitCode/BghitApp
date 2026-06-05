@@ -24,15 +24,25 @@ function printShortHelp() {
   console.log(`  --fullscreen              Start in full screen`);
   console.log(`  --hide-title-bar          For Mac, hide title bar`);
   console.log(`  --multi-arch              For Mac, both Intel and M1`);
-  console.log(`  --inject <files>          Inject local CSS/JS files into the page`);
+  console.log(
+    `  --inject <files>          Inject local CSS/JS files into the page`,
+  );
   console.log(`  --debug                   Debug build and more output`);
-  console.log(`  --targets <string>        Build target format for your system`);
-  console.log(`  --splash <path_or_url>    Splash screen image (local path or URL)`);
-  console.log(`  --auto-splash             Auto-fetch og:image from target URL for splash`);
+  console.log(
+    `  --targets <string>        Build target format for your system`,
+  );
+  console.log(
+    `  --splash <path_or_url>    Splash screen image (local path or URL)`,
+  );
+  console.log(
+    `  --auto-splash             Auto-fetch og:image from target URL for splash`,
+  );
   console.log(`  --offline                 Enable offline fallback page`);
   console.log(`  -v, --version             output the version number`);
   console.log(`  -h, --help                display help for command`);
-  console.log(`\nRun ${yellow('"bghitapp --help"')} to see all available options.\n`);
+  console.log(
+    `\nRun ${yellow('"bghitapp --help"')} to see all available options.\n`,
+  );
 }
 
 async function checkUpdateTips() {

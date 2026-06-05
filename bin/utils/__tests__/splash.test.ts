@@ -171,7 +171,12 @@ describe('processSplashAsset', () => {
   });
 
   it('returns app icon when no splash configured', async () => {
-    const result = await processSplashAsset('', false, 'https://example.com', 'icon.png');
+    const result = await processSplashAsset(
+      '',
+      false,
+      'https://example.com',
+      'icon.png',
+    );
     expect(result.assetFilename).toBe('icon.png');
     expect(result.assetPath).toBe('icon.png');
   });

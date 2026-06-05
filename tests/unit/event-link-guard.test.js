@@ -79,9 +79,9 @@ describe("event link guard", () => {
   it("keeps normal navigations under BghitApp handling", () => {
     const { shouldBypassBghitappLinkHandling } = loadEventHelpers();
 
-    expect(shouldBypassBghitappLinkHandling("https://example.com/account")).toBe(
-      false,
-    );
+    expect(
+      shouldBypassBghitappLinkHandling("https://example.com/account"),
+    ).toBe(false);
   });
 
   it("bridges Web Badging API calls to explicit badge commands", async () => {
