@@ -84,7 +84,7 @@ pub fn build_splash_window(app: &AppHandle, _splash_asset: &str) -> tauri::Resul
         )
     };
 
-    let window_builder = WebviewWindowBuilder::new(app, "splash", url)
+    let mut window_builder = WebviewWindowBuilder::new(app, "splash", url)
         .title("")
         .visible(false)
         .inner_size(splash_width, splash_height)
