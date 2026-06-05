@@ -72,14 +72,14 @@ The URL is the link to the web page you want to package or the path to a local H
 
 Various options are available for customization. Here are the most commonly used ones:
 
-| Option             | Description                                     | Example                                        |
-| ------------------ | ----------------------------------------------- | ---------------------------------------------- |
-| `--name`           | Application name                                | `--name "Weekly"`                              |
+| Option             | Description                                     | Example                                |
+| ------------------ | ----------------------------------------------- | -------------------------------------- |
+| `--name`           | Application name                                | `--name "Weekly"`                      |
 | `--icon`           | Custom icon (optional, auto-fetch website icon) | `--icon https://example.com/icon.icns` |
-| `--width`          | Window width (default: 1200px)                  | `--width 1400`                                 |
-| `--height`         | Window height (default: 780px)                  | `--height 900`                                 |
-| `--hide-title-bar` | Immersive header (macOS only)                   | `--hide-title-bar`                             |
-| `--debug`          | Enable development tools                        | `--debug`                                      |
+| `--width`          | Window width (default: 1200px)                  | `--width 1400`                         |
+| `--height`         | Window height (default: 780px)                  | `--height 900`                         |
+| `--hide-title-bar` | Immersive header (macOS only)                   | `--hide-title-bar`                     |
+| `--debug`          | Enable development tools                        | `--debug`                              |
 
 For complete options, see detailed sections below.
 

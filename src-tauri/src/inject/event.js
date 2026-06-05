@@ -277,7 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const appWindow = tauri.window.getCurrentWindow();
   const invoke = tauri.core.invoke;
   const bghitappConfig = window["bghitappConfig"] || {};
-  const forceInternalNavigation = bghitappConfig.force_internal_navigation === true;
+  const forceInternalNavigation =
+    bghitappConfig.force_internal_navigation === true;
   const internalUrlRegex = bghitappConfig.internal_url_regex || "";
   let internalUrlPattern = null;
   if (internalUrlRegex) {
@@ -434,7 +435,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Keep OAuth/authentication flows inside the app when popup support is enabled.
       if (window.isAuthLink(absoluteUrl)) {
-        console.log("[BghitApp] Handling OAuth navigation in-app:", absoluteUrl);
+        console.log(
+          "[BghitApp] Handling OAuth navigation in-app:",
+          absoluteUrl,
+        );
 
         if (window.bghitappConfig?.new_window) {
           e.preventDefault();
@@ -1066,7 +1070,10 @@ function setDefaultZoom() {
   const htmlZoom = window.localStorage.getItem("htmlZoom");
   if (htmlZoom) {
     setZoom(htmlZoom);
-  } else if (window.bghitappConfig?.zoom && window.bghitappConfig.zoom !== 100) {
+  } else if (
+    window.bghitappConfig?.zoom &&
+    window.bghitappConfig.zoom !== 100
+  ) {
     setZoom(`${window.bghitappConfig.zoom}%`);
   }
 }

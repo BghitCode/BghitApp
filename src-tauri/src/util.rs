@@ -5,12 +5,13 @@ use tauri::{AppHandle, Config, Manager, WebviewWindow};
 
 pub fn get_bghitapp_config() -> (BghitappConfig, Config) {
     #[cfg(feature = "cli-build")]
-    let bghitapp_config: BghitappConfig = serde_json::from_str(include_str!("../.bghitapp/bghitapp.json"))
-        .expect("Failed to parse bghitapp config");
+    let bghitapp_config: BghitappConfig =
+        serde_json::from_str(include_str!("../.bghitapp/bghitapp.json"))
+            .expect("Failed to parse bghitapp config");
 
     #[cfg(not(feature = "cli-build"))]
-    let bghitapp_config: BghitappConfig =
-        serde_json::from_str(include_str!("../bghitapp.json")).expect("Failed to parse bghitapp config");
+    let bghitapp_config: BghitappConfig = serde_json::from_str(include_str!("../bghitapp.json"))
+        .expect("Failed to parse bghitapp config");
 
     #[cfg(feature = "cli-build")]
     let tauri_config: Config = serde_json::from_str(include_str!("../.bghitapp/tauri.conf.json"))

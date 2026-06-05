@@ -98,7 +98,7 @@ pub fn set_system_tray(
     if let Some(icon) = resolved_icon {
         tray_builder = tray_builder.icon(icon);
     } else {
-                eprintln!("[BghitApp] No tray icon available; tray will build without an icon.");
+        eprintln!("[BghitApp] No tray icon available; tray will build without an icon.");
     }
 
     let tray = tray_builder.build(app)?;
@@ -120,7 +120,7 @@ pub fn set_global_shortcut(
     let shortcut_hotkey = match Shortcut::from_str(&shortcut) {
         Ok(s) => s,
         Err(error) => {
-                eprintln!("[BghitApp] Invalid activation shortcut '{shortcut}': {error}");
+            eprintln!("[BghitApp] Invalid activation shortcut '{shortcut}': {error}");
             return Ok(());
         }
     };

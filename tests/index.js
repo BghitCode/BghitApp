@@ -376,7 +376,7 @@ class BghitappTestRunner {
     );
 
     // Version command test
-    await this.runTest(      "@bghitcode/bghitapp Version Command", async () => {
+    await this.runTest("@bghitcode/bghitapp Version Command", async () => {
       try {
         const version = execSync("npx bghitapp --version", {
           encoding: "utf8",
@@ -535,7 +535,11 @@ class BghitappTestRunner {
     await this.runTest(
       "Configuration File Verification",
       async () => {
-        const bghitappDir = path.join(config.PROJECT_ROOT, "src-tauri", ".bghitapp");
+        const bghitappDir = path.join(
+          config.PROJECT_ROOT,
+          "src-tauri",
+          ".bghitapp",
+        );
 
         return new Promise((resolve, reject) => {
           const testName = "GitHubConfigTest";
@@ -555,9 +559,15 @@ class BghitappTestRunner {
           const checkConfigFiles = () => {
             if (fs.existsSync(bghitappDir)) {
               const configFile = path.join(bghitappDir, "tauri.conf.json");
-              const bghitappConfigFile = path.join(bghitappDir, "bghitapp.json");
+              const bghitappConfigFile = path.join(
+                bghitappDir,
+                "bghitapp.json",
+              );
 
-              if (fs.existsSync(configFile) && fs.existsSync(bghitappConfigFile)) {
+              if (
+                fs.existsSync(configFile) &&
+                fs.existsSync(bghitappConfigFile)
+              ) {
                 try {
                   const config = JSON.parse(
                     fs.readFileSync(configFile, "utf8"),
@@ -1466,7 +1476,11 @@ class BghitappTestRunner {
       });
 
       // Also clean src-tauri/.bghitapp directory if it exists
-      const bghitappDir = path.join(config.PROJECT_ROOT, "src-tauri", ".bghitapp");
+      const bghitappDir = path.join(
+        config.PROJECT_ROOT,
+        "src-tauri",
+        ".bghitapp",
+      );
       if (fs.existsSync(bghitappDir)) {
         fs.rmSync(bghitappDir, { recursive: true, force: true });
       }

@@ -60,7 +60,9 @@ export const DEFAULT_BGHITAPP_OPTIONS: BghitappCliOptions = {
 };
 
 // Just for cli development
-export const DEFAULT_DEV_BGHITAPP_OPTIONS: BghitappCliOptions & { url: string } = {
+export const DEFAULT_DEV_BGHITAPP_OPTIONS: BghitappCliOptions & {
+  url: string;
+} = {
   ...DEFAULT_BGHITAPP_OPTIONS,
   url: 'https://example.com',
   name: 'Weekly',

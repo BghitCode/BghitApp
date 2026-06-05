@@ -7,7 +7,7 @@ import { validateNumberInput, validateUrlInput } from '../utils/validate';
 const { green, yellow, gray } = chalk;
 export const logo = `${green(' ____        _     _ _      _                ')}
 ${green('| __ )  __ _| |__ (_) |_   / \\   _ __  _ __  ')}
-${green('|  _ \\ / _` | \'_ \\| | __| / _ \\ | \'_ \\| \'_ \\ ')}
+${green("|  _ \\ / _` | '_ \\| | __| / _ \\ | '_ \\| '_ \\ ")}
 ${green('| |_) | (_| | | | | | |_ / ___ \\| |_) | |_) |')}
 ${green('|____/ \\__, |_| |_|_|\\__/_/   \\_\\ .__/| .__/ ')}
 ${green('       |___/                    |_|   |_|    ')}
@@ -23,10 +23,7 @@ export function getCliProgram() {
     .argument('[url]', 'The web URL you want to package', validateUrlInput)
     .option('--name <string>', 'Application name')
     .addOption(
-      new Option(
-        '--identifier <string>',
-        'Application identifier / bundle ID',
-      ),
+      new Option('--identifier <string>', 'Application identifier / bundle ID'),
     )
     .option('--icon <string>', 'Application icon', DEFAULT.icon)
     .option(
@@ -74,8 +71,9 @@ export function getCliProgram() {
       ).default(DEFAULT.proxyUrl),
     )
     .addOption(
-      new Option('--user-agent <string>', 'Custom user agent')
-        .default(DEFAULT.userAgent),
+      new Option('--user-agent <string>', 'Custom user agent').default(
+        DEFAULT.userAgent,
+      ),
     )
     .addOption(
       new Option(
@@ -90,32 +88,42 @@ export function getCliProgram() {
       ).default(DEFAULT.appVersion),
     )
     .addOption(
-      new Option('--always-on-top', 'Always on the top level')
-        .default(DEFAULT.alwaysOnTop),
+      new Option('--always-on-top', 'Always on the top level').default(
+        DEFAULT.alwaysOnTop,
+      ),
     )
     .addOption(
-      new Option('--maximize', 'Start window maximized')
-        .default(DEFAULT.maximize),
+      new Option('--maximize', 'Start window maximized').default(
+        DEFAULT.maximize,
+      ),
     )
     .addOption(
-      new Option('--dark-mode', 'Force Mac app to use dark mode')
-        .default(DEFAULT.darkMode),
+      new Option('--dark-mode', 'Force Mac app to use dark mode').default(
+        DEFAULT.darkMode,
+      ),
     )
     .addOption(
-      new Option('--disabled-web-shortcuts', 'Disabled webPage shortcuts')
-        .default(DEFAULT.disabledWebShortcuts),
+      new Option(
+        '--disabled-web-shortcuts',
+        'Disabled webPage shortcuts',
+      ).default(DEFAULT.disabledWebShortcuts),
     )
     .addOption(
-      new Option('--activation-shortcut <string>', 'Shortcut key to active App')
-        .default(DEFAULT.activationShortcut),
+      new Option(
+        '--activation-shortcut <string>',
+        'Shortcut key to active App',
+      ).default(DEFAULT.activationShortcut),
     )
     .addOption(
-      new Option('--show-system-tray', 'Show system tray in app')
-        .default(DEFAULT.showSystemTray),
+      new Option('--show-system-tray', 'Show system tray in app').default(
+        DEFAULT.showSystemTray,
+      ),
     )
     .addOption(
-      new Option('--system-tray-icon <string>', 'Custom system tray icon')
-        .default(DEFAULT.systemTrayIcon),
+      new Option(
+        '--system-tray-icon <string>',
+        'Custom system tray icon',
+      ).default(DEFAULT.systemTrayIcon),
     )
     .addOption(
       new Option(
@@ -132,24 +140,32 @@ export function getCliProgram() {
     )
     .addOption(new Option('--title <string>', 'Window title'))
     .addOption(
-      new Option('--incognito', 'Launch app in incognito/private mode')
-        .default(DEFAULT.incognito),
+      new Option('--incognito', 'Launch app in incognito/private mode').default(
+        DEFAULT.incognito,
+      ),
     )
     .addOption(
-      new Option('--wasm', 'Enable WebAssembly support (Flutter Web, etc.)')
-        .default(DEFAULT.wasm),
+      new Option(
+        '--wasm',
+        'Enable WebAssembly support (Flutter Web, etc.)',
+      ).default(DEFAULT.wasm),
     )
     .addOption(
-      new Option('--enable-drag-drop', 'Enable drag and drop functionality')
-        .default(DEFAULT.enableDragDrop),
+      new Option(
+        '--enable-drag-drop',
+        'Enable drag and drop functionality',
+      ).default(DEFAULT.enableDragDrop),
     )
     .addOption(
-      new Option('--keep-binary', 'Keep raw binary file alongside installer')
-        .default(DEFAULT.keepBinary),
+      new Option(
+        '--keep-binary',
+        'Keep raw binary file alongside installer',
+      ).default(DEFAULT.keepBinary),
     )
     .addOption(
-      new Option('--multi-instance', 'Allow multiple app instances')
-        .default(DEFAULT.multiInstance),
+      new Option('--multi-instance', 'Allow multiple app instances').default(
+        DEFAULT.multiInstance,
+      ),
     )
     .addOption(
       new Option(
@@ -158,8 +174,9 @@ export function getCliProgram() {
       ).default(DEFAULT.multiWindow),
     )
     .addOption(
-      new Option('--start-to-tray', 'Start app minimized to tray')
-        .default(DEFAULT.startToTray),
+      new Option('--start-to-tray', 'Start app minimized to tray').default(
+        DEFAULT.startToTray,
+      ),
     )
     .addOption(
       new Option(
@@ -180,8 +197,9 @@ export function getCliProgram() {
       ).default(DEFAULT.enableFind),
     )
     .addOption(
-      new Option('--installer-language <string>', 'Installer language')
-        .default(DEFAULT.installerLanguage),
+      new Option('--installer-language <string>', 'Installer language').default(
+        DEFAULT.installerLanguage,
+      ),
     )
     .addOption(
       new Option('--zoom <number>', 'Initial page zoom level (50-200)')
@@ -229,12 +247,15 @@ export function getCliProgram() {
       ).default(DEFAULT.install),
     )
     .addOption(
-      new Option('--camera', 'Request camera permission on macOS')
-        .default(DEFAULT.camera),
+      new Option('--camera', 'Request camera permission on macOS').default(
+        DEFAULT.camera,
+      ),
     )
     .addOption(
-      new Option('--microphone', 'Request microphone permission on macOS')
-        .default(DEFAULT.microphone),
+      new Option(
+        '--microphone',
+        'Request microphone permission on macOS',
+      ).default(DEFAULT.microphone),
     )
     .addOption(
       new Option(
@@ -249,8 +270,9 @@ export function getCliProgram() {
       ).default(DEFAULT.autoSplash),
     )
     .addOption(
-      new Option('--offline', 'Enable offline fallback page')
-        .default(DEFAULT.offline),
+      new Option('--offline', 'Enable offline fallback page').default(
+        DEFAULT.offline,
+      ),
     )
     .version(packageJson.version, '-v, --version');
 }
