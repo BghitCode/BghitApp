@@ -82,7 +82,9 @@ pub struct NotificationParams {
 
 #[command]
 pub async fn download_file(app: AppHandle, params: DownloadFileParams) -> Result<(), String> {
-    let window: WebviewWindow = app.get_webview_window("bghitapp").ok_or("Window not found")?;
+    let window: WebviewWindow = app
+        .get_webview_window("bghitapp")
+        .ok_or("Window not found")?;
 
     show_toast(
         &window,

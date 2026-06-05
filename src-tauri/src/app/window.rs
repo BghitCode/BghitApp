@@ -61,10 +61,7 @@ pub fn set_window(
     build_window_with_label(app, config, tauri_config, "bghitapp")
 }
 
-pub fn build_splash_window(
-    app: &AppHandle,
-    _splash_asset: &str,
-) -> tauri::Result<WebviewWindow> {
+pub fn build_splash_window(app: &AppHandle, _splash_asset: &str) -> tauri::Result<WebviewWindow> {
     let url = WebviewUrl::App(PathBuf::from("splash.html"));
     let splash_width = 800.0;
     let splash_height = 500.0;
@@ -81,7 +78,10 @@ pub fn build_splash_window(
         (x, y)
     } else {
         // Fallback: rough center assuming 1920x1080
-        ((1920.0 - splash_width) / 2.0, (1080.0 - splash_height) / 2.0)
+        (
+            (1920.0 - splash_width) / 2.0,
+            (1080.0 - splash_height) / 2.0,
+        )
     };
 
     let window_builder = WebviewWindowBuilder::new(app, "splash", url)
@@ -342,8 +342,7 @@ fn build_window(
 
     // Conditionally inject offline detection script
     if window_config.offline {
-        window_builder =
-            window_builder.initialization_script(include_str!("../inject/offline.js"));
+        window_builder = window_builder.initialization_script(include_str!("../inject/offline.js"));
     }
 
     // Inject splash transition script if splash is configured
