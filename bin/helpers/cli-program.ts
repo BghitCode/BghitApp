@@ -136,7 +136,7 @@ export function getCliProgram() {
       )
         .default(DEFAULT.hideOnClose)
         .argParser((value) => {
-          if (value === undefined) return true; // --hide-on-close without value
+          if (value === undefined) return true;
           if (value === 'true') return true;
           if (value === 'false') return false;
           throw new Error('--hide-on-close must be true or false');
@@ -282,21 +282,18 @@ export function getCliProgram() {
         '--splash <path_or_url>',
         'Splash screen image (local path or URL)',
       )
-        .default(DEFAULT.splash)
-        .hideHelp(),
+        .default(DEFAULT.splash),
     )
     .addOption(
       new Option(
         '--auto-splash',
         'Auto-fetch og:image from target URL for splash',
       )
-        .default(DEFAULT.autoSplash)
-        .hideHelp(),
+        .default(DEFAULT.autoSplash),
     )
     .addOption(
       new Option('--offline', 'Enable offline fallback page')
-        .default(DEFAULT.offline)
-        .hideHelp(),
+        .default(DEFAULT.offline),
     )
     .version(packageJson.version, '-v, --version')
     .configureHelp({
