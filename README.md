@@ -4,6 +4,8 @@
 <h1 align="center">BghitApp</h1>
 <p align="center"><strong>Turn any webpage into a desktop app with one command — by BghitCode. Supports macOS, Windows, and Linux</strong></p>
 <div align="center">
+    <a href="https://bghitcode.com" target="_blank">
+    <img alt="Website" src="https://img.shields.io/badge/website-bghitcode.com-blue?style=flat-square"></a>
     <a href="https://github.com/BghitCode/bghitapp/releases" target="_blank">
     <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/BghitCode/bghitapp/total.svg?style=flat-square"></a>
     <a href="https://github.com/BghitCode/bghitapp/commits" target="_blank">
