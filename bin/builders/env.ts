@@ -70,10 +70,13 @@ async function detectNpm(
  * Returns an OS-specific hint telling the user how to install npm.
  * Exported for reuse in warnings and error messages.
  */
-export function getNpmInstallHint(platform: NodeJS.Platform = process.platform): string {
+export function getNpmInstallHint(
+  platform: NodeJS.Platform = process.platform,
+): string {
   if (platform === 'darwin') return 'brew install npm';
   if (platform === 'win32') return 'winget install OpenJS.NodeJS';
-  if (platform === 'linux') return 'sudo apt install npm (or use your distro\'s package manager)';
+  if (platform === 'linux')
+    return "sudo apt install npm (or use your distro's package manager)";
   return 'Install npm: https://docs.npmjs.com/downloading/installing-node';
 }
 

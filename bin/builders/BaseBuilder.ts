@@ -100,7 +100,9 @@ export default abstract class BaseBuilder {
       }
       const errorStr = error instanceof Error ? error.message : String(error);
       if (errorStr.includes('npm') && errorStr.includes('command not found')) {
-        logger.info(`✺ npm is required by some dependencies. Install with: ${getNpmInstallHint()}`);
+        logger.info(
+          `✺ npm is required by some dependencies. Install with: ${getNpmInstallHint()}`,
+        );
       }
       throw error;
     }
