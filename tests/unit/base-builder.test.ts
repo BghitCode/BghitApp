@@ -21,6 +21,7 @@ import {
   detectPackageManager,
   getBuildEnvironment,
   getInstallCommand,
+  getNpmInstallHint,
 } from '@/builders/env';
 import logger from '@/options/logger';
 import { CN_MIRROR_ENV, isCnMirrorEnabled } from '@/utils/mirror';
@@ -171,7 +172,7 @@ describe('BaseBuilder guards', () => {
     mockPackageManagers({ pnpm: '10.26.2', npm: '11.12.1' });
 
     await expect(detectPackageManager()).resolves.toBe('pnpm');
-    expect(execaMock).toHaveBeenCalledTimes(1);
+    expect(execaMock).toHaveBeenCalledTimes(2);
     expect(execaMock).toHaveBeenCalledWith('pnpm', ['--version']);
   });
 
@@ -206,13 +207,44 @@ describe('BaseBuilder guards', () => {
     );
   });
 
+  it('warns when pnpm is available but npm is missing', async () => {
+    const warnSpy = vi.spyOn(logger, 'warn').mockImplementation(() => {});
+    mockPackageManagers({ pnpm: '10.26.2', npm: new Error('npm not found') });
+
+    await expect(detectPackageManager()).resolves.toBe('pnpm');
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('npm not found on PATH'),
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('Install with:'),
+    );
+  });
+
+  describe('getNpmInstallHint', () => {
+    it('returns brew command on macOS', () => {
+      expect(getNpmInstallHint('darwin')).toBe('brew install npm');
+    });
+
+    it('returns winget command on Windows', () => {
+      expect(getNpmInstallHint('win32')).toBe('winget install OpenJS.NodeJS');
+    });
+
+    it('returns apt command on Linux', () => {
+      expect(getNpmInstallHint('linux')).toContain('sudo apt install npm');
+    });
+
+    it('returns docs URL as fallback', () => {
+      expect(getNpmInstallHint('freebsd')).toContain('docs.npmjs.com');
+    });
+  });
+
   it('caches the detected package manager until reset', async () => {
     mockPackageManagers({ pnpm: '10.26.2' });
 
     await expect(detectPackageManager()).resolves.toBe('pnpm');
     mockPackageManagers({ pnpm: new Error('missing pnpm'), npm: '11.12.1' });
     await expect(detectPackageManager()).resolves.toBe('pnpm');
-    expect(execaMock).toHaveBeenCalledTimes(1);
+    expect(execaMock).toHaveBeenCalledTimes(2);
 
     _resetPackageManagerCache();
     await expect(detectPackageManager()).resolves.toBe('npm');

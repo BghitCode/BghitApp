@@ -2,7 +2,7 @@ import path from 'path';
 import fsExtra from 'fs-extra';
 
 import { CN_MIRROR_ENV } from '@/utils/mirror';
-import { IS_MAC } from '@/utils/platform';
+import { IS_MAC, IS_WIN, IS_LINUX } from '@/utils/platform';
 import { npmDirectory } from '@/utils/dir';
 import logger from '@/options/logger';
 import packageJson from '../../package.json';
@@ -66,6 +66,17 @@ async function detectNpm(
   }
 }
 
+/**
+ * Returns an OS-specific hint telling the user how to install npm.
+ * Exported for reuse in warnings and error messages.
+ */
+export function getNpmInstallHint(platform: NodeJS.Platform = process.platform): string {
+  if (platform === 'darwin') return 'brew install npm';
+  if (platform === 'win32') return 'winget install OpenJS.NodeJS';
+  if (platform === 'linux') return 'sudo apt install npm (or use your distro\'s package manager)';
+  return 'Install npm: https://docs.npmjs.com/downloading/installing-node';
+}
+
 /** Resets the cached package manager. Exported for tests. */
 export function _resetPackageManagerCache(): void {
   packageManagerCache = null;
@@ -97,6 +108,12 @@ export async function detectPackageManager(): Promise<'pnpm' | 'npm'> {
       );
       packageManagerCache = 'npm';
       return 'npm';
+    }
+
+    if (!(await detectNpm(execa))) {
+      logger.warn(
+        `✼ npm not found on PATH. Some dependencies (e.g., sharp) require npm to build. Install with: ${getNpmInstallHint()}`,
+      );
     }
 
     logger.info('✺ Using pnpm for package management.');

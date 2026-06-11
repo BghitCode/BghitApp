@@ -24,6 +24,7 @@ import {
   getBuildTimeout,
   getInstallCommand,
   getInstallTimeout,
+  getNpmInstallHint,
   isLinuxDeployStripError,
 } from './env';
 
@@ -96,6 +97,10 @@ export default abstract class BaseBuilder {
         logger.info(
           `✺ If downloads are slow in China, retry with ${CN_MIRROR_ENV}=1 to use CN mirrors.`,
         );
+      }
+      const errorStr = error instanceof Error ? error.message : String(error);
+      if (errorStr.includes('npm') && errorStr.includes('command not found')) {
+        logger.info(`✺ npm is required by some dependencies. Install with: ${getNpmInstallHint()}`);
       }
       throw error;
     }
