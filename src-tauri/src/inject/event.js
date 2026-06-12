@@ -454,6 +454,10 @@ document.addEventListener("DOMContentLoaded", () => {
           if (!authWindow) {
             window.location.href = absoluteUrl;
           }
+        } else {
+          window.bghitappToast?.(
+            "Login requires popups. Use --new-window flag to enable OAuth support.",
+          );
         }
 
         return;
